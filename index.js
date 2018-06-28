@@ -63,4 +63,5 @@ function zAdd() {
 
 function zEsconder() {
   $(".listagraveyard").hide();
+  $(".cover").hide();
 }
