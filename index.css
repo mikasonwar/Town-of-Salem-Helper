@@ -1,0 +1,97 @@
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Questrial', sans-serif;
+*/
+
+.geral {
+  display:flex;
+  justify-content: left;
+  flex-wrap: wrap;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.conteudo {
+  flex:1;
+  background-color: lightgray;
+  margin:10px;
+  padding:10px;
+}
+.roles {
+  background-color: #FFFFFF;
+  border: solid 2px brown;
+}
+.cover {
+  display: none;
+  position: fixed;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.random {
+  color: blue;
+}
+.listagraveyard {
+  display: none;
+  position: absolute;
+  background-color: gray;
+  left: 0;
+  padding:10px;
+  margin-bottom: 10px;
+}
+.add {
+  position: relative;
+}
+.rolesH {
+  font-size: 20px;
+  color: brown;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: solid 2px brown;
+  margin-bottom: 2px;
+}
+.buttons {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color:white;
+  padding:10px;
+  z-index: 2;
+}
+.graveyardH {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: solid 2px white;
+  margin-bottom: 2px;
+}
+.graveyard {
+  background-color: black;
+  border: solid 2px gray;
+  position: relative;
+}
+.conteudo input[type="checkbox"]{
+  margin-right: 5px;
+}
+.conteudo label {
+  display:block;
+  margin-bottom: 3px;
+}
+.inno {
+  color:green;
+}
+.maf {
+  color:red;
+}
+.sk {
+  color:blue;
+}
+.jest {
+  color:pink;
+}
+.neut {
+  color:gray;
+}
