@@ -101,6 +101,9 @@ font-family: 'Questrial', sans-serif;
   float: right;
   cursor:pointer;
 }
+.roleheader .texto:hover {
+  background-color: lightgray;
+}
 .rolesH {
   font-size: 20px;
   color: brown;
@@ -120,6 +123,29 @@ font-family: 'Questrial', sans-serif;
 .claims {
   background-color: #98e698;
   border:solid 2px green;
+}
+.helloman {
+  background-color: lightgray;
+  border:solid 2px gray;
+}
+.hellomanH {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: solid 2px white;
+  margin-bottom: 10px;
+}
+.helloman > .flex > span {
+  display: block;
+  margin:2px;
+  padding:5px;
+  border-radius: 10px;
+  border:solid 2px black;
+  cursor: pointer;
+}
+.helloman > .flex > span:hover {
+  background-color: gray;
 }
 .buttons {
   position: absolute;
@@ -170,4 +196,14 @@ font-family: 'Questrial', sans-serif;
 .alertasgerais {
   white-space: pre;
   padding:10px;
+}
+.alerta {
+  position: fixed;
+  left: 0;
+  bottom:0;
+  background-color: #7070e0;
+  border:solid 2px black;
+  margin:10px;
+  padding:10px;
+  border-radius: 10px;
 }

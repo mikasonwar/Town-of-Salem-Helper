@@ -22,6 +22,23 @@ var neut = [
 ["serial_killer","Serial Killer","sk"]
 ]
 
+var Hello = [
+ "Hello",
+ "Hola",
+ "Bonjour",
+ "Olá",
+ "Namasté",
+ "Guten tag",
+ "Ciao",
+ "こんにちは",
+ "Здравствуйте",
+ "你好",
+ "Χαίρετε",
+ "مرحبا",
+ "zdravo",
+ "xin chào"
+]
+
 
 $(document).ready(function(){
 
@@ -78,7 +95,6 @@ for(var i=0;i<neut.length;i++) {
           role = inno[i][0]
           $("."+role).append(" ["+role+"]")
           $("."+role).eq(0).find("input[type='checkbox']").click(zClick)
-          console.log("--Logs--\nrole: "+role)
 
       }
   }
@@ -87,11 +103,11 @@ for(var i=0;i<neut.length;i++) {
 
 $(".graveyard").on("change", zAtualizar)
 zAtualizar();
+zHello();
 });
 
 function zClick() {
 
-  console.log(this);
   id=$(this).parent("label").attr("role");
   if($(this).prop('checked')) {
     console.log(id)
@@ -126,7 +142,6 @@ function zAtualizar() {
   var mensagem= innocent+"Townies"+fim+" left: "+  zContagem(inno)
               + "\n"+mafia+"Mafia"+fim+" left: "+   zContagem(maf)
               + "\n"+neutral+"Neutral"+fim+" left: "+ zContagem(neut);
-  console.log(mensagem);
   $(".contagem").append(mensagem);
 
   var mensagemgeral = ""
@@ -153,3 +168,27 @@ function zContagem(array) {
   return x;
 }
 
+function zHello() {
+  var texto="";
+  for(var i=0;i<Hello.length;i++) {
+    texto += '<span data-clipboard-text="'+Hello[i]+'"> '+Hello[i]+'</span>';
+  }
+  $(".hello").empty();
+  $(".hello").append(texto);
+  var clipboard = new ClipboardJS('.hello span');
+  clipboard.on('success', function(e) {
+      console.log(e);
+      zAlerta("Copiado com sucesso");
+  });
+  clipboard.on('error', function(e) {
+      console.log(e);
+  });
+}
+
+function zAlerta(texto) {
+  $(".alerta").remove();
+  var alerta = '<div class="alerta">'+texto+'</div>';
+  $(alerta).insertBefore('body');
+  $(".alerta").hide();
+  $(".alerta").fadeIn().delay(1*1000).fadeOut();
+}
