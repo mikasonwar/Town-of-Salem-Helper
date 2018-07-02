@@ -1,8 +1,3 @@
-$(document).ready(function(){
-
-$(".cover").click(zEsconder);
-
-
 var inno = [
 ["sheriff","Sheriff"],
 ["doctor","Doctor"],
@@ -27,12 +22,28 @@ var neut = [
 ["serial_killer","Serial Killer","sk"]
 ]
 
+
+$(document).ready(function(){
+
+$(".cover").click(zEsconder);
+
+
+  for(var i=0;i<inno.length;i++) {
+    team="inno";
+    role=inno[i][0];
+    roleName=inno[i][1].replace(/&rs/g,'<span class="random">').replace(/&re/g, '</span>');
+    var lbl = '<div class="'+team+' lblgraveyard" id="'+role+'">'+roleName+'</div>';
+    $(".listagraveyard .flex").append(lbl);
+  }
+
 for(var i=0;i<inno.length;i++) {
   team="inno";
   role=inno[i][0];
   roleName=inno[i][1].replace(/&rs/g,'<span class="random">').replace(/&re/g, '</span>');
-  var lbl = '<label class="'+team+'"><input type="checkbox" id="'+role+'">'+roleName+'</label>'
+  var lbl = '<label class="'+team+' '+role+'" role="'+role+'"><input type="checkbox" >'+roleName+'</label>';
   $(".roles").append(lbl);
+  $(".graveyard").append(lbl);
+  $(".claims").append(lbl);
 }
 
 for(var i=0;i<maf.length;i++) {
@@ -40,8 +51,10 @@ for(var i=0;i<maf.length;i++) {
   role=maf[i][0];
   roleName=maf[i][1];
 
-  var lbl = '<label class="'+team+'"><input type="checkbox" id="'+role+'">'+roleName+'</label>'
+  var lbl = '<label class="'+team+' '+role+'" role="'+role+'"><input type="checkbox" >'+roleName+'</label>';
   $(".roles").append(lbl);
+  $(".graveyard").append(lbl);
+  $(".claims").append(lbl);
 }
 
 for(var i=0;i<neut.length;i++) {
@@ -50,18 +63,93 @@ for(var i=0;i<neut.length;i++) {
   roleName=neut[i][1];
 
 
-  var lbl = '<label class="'+team+'"><input type="checkbox" id="'+role+'">'+roleName+'</label>'
+  var lbl = '<label class="'+team+' '+role+'" role="'+role+'"><input type="checkbox" >'+roleName+'</label>';
   $(".roles").append(lbl);
+  $(".graveyard").append(lbl);
+  $(".claims").append(lbl);
 }
 
+  $(".claims").find("label").append("<input class='txtbox' type='text'>")
+
+
+  if(false){
+      for(var i=0;i<inno.length;i++){
+
+          role = inno[i][0]
+          $("."+role).append(" ["+role+"]")
+          $("."+role).eq(0).find("input[type='checkbox']").click(zClick)
+          console.log("--Logs--\nrole: "+role)
+
+      }
+  }
+
+
+
+$(".graveyard").on("change", zAtualizar)
+zAtualizar();
 });
+
+function zClick() {
+
+  console.log(this);
+  id=$(this).parent("label").attr("role");
+  if($(this).prop('checked')) {
+    console.log(id)
+    $("."+id).find("input[type='checkbox']").prop('checked',1);
+  } else{console.log("|-"+" oi? "+ "-| - zClick("+id+")")}
+
+  zAtualizar();
+}
 
 function zAdd() {
   $(".listagraveyard").show();
   $(".cover").show();
+
+
+
+  // var lbl = '<div class="'+team+' " id="'+role+'">'+roleName+'</div>'
 }
 
 function zEsconder() {
   $(".listagraveyard").hide();
   $(".cover").hide();
 }
+
+function zAtualizar() {
+  var random="<span class='random'>"
+  var innocent="<span class='inno'>"
+  var mafia = "<span class='maf'>"
+  var neutral = "<span class='neut'>"
+  var fim="</span>"
+  $(".contagem").empty();
+
+  var mensagem= innocent+"Townies"+fim+" left: "+  zContagem(inno)
+              + "\n"+mafia+"Mafia"+fim+" left: "+   zContagem(maf)
+              + "\n"+neutral+"Neutral"+fim+" left: "+ zContagem(neut);
+  console.log(mensagem);
+  $(".contagem").append(mensagem);
+
+  var mensagemgeral = ""
+  $(".alertasgerais").empty();
+
+  if($(".graveyard").find(".townrandom input[type='checkbox']").prop("checked")) {
+    mensagemgeral+= random+"R"+fim+innocent+"T"+fim+" está morto\n";
+  }
+
+  if($(".graveyard").find(".townkilling input[type='checkbox']").prop("checked")) {
+    mensagemgeral+= innocent+"T"+fim+random+"K"+fim+" está morto\n";
+  }
+
+  $(".alertasgerais").append(mensagemgeral);
+}
+
+function zContagem(array) {
+  var x=0;
+  for(var i=0;i<array.length;i++) {
+    if(!$(".graveyard").find("."+array[i][0]+" input[type='checkbox']").prop("checked")) {
+      x++;
+    }
+  }
+  return x;
+}
+
