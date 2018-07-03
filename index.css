@@ -230,6 +230,7 @@ font-family: 'Questrial', sans-serif;
   border:solid 2px black;
   cursor: pointer;
   color:#9c0202;
+  background-color: rgba(255, 255, 255, 0.78);
 }
 .crusaderman > .Ccrusaderman > .flex > span:hover {
   background-color: lightgray;
