@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--   <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="cli.js"></script> -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Questrial|Roboto+Mono|Gaegu" rel="stylesheet">
+  <!-- <link rel="icon" href="assets/images/terminal.png"> -->
+  <title>Desenhos</title>
+
+<style type="text/css">
+
+/*
+font-family: 'Open Sans', sans-serif;
+font-family: 'Roboto Mono', monospace;
+font-family: 'Questrial', sans-serif;
+font-family: 'Gaegu', cursive;
+*/
+
+
+.tela {
+  width: 200px;
+  height: 200px;
+  border:solid 3px black;
+  position: relative;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.reddit {
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top:25px;
+  left:25px;
+  border-radius: 100%;
+  background-color: red;
+}
+.reddit .a {
+  height: 60px;
+  width: 100px;
+  position: absolute;
+  top:68px;
+  left: 25px;
+  border-radius: 100%;
+  background-color: white;
+}
+.reddit .b {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top:67px;
+  left: 20px;
+  border-radius: 100%;
+  background-color: white;
+}
+.reddit .c {
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top:68px;
+  right: 19px;
+  border-radius: 100%;
+  background-color: white;
+}
+.reddit .d {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top:80px;
+  right: 45px;
+  border-radius: 100%;
+  background-color: red;
+}
+.reddit .e {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top:80px;
+  left: 45px;
+  border-radius: 100%;
+  background-color: red;
+}
+.reddit .f {
+  height: 10px;
+  width: 45px;
+  position: absolute;
+  top: 100px;
+  left: 52px;
+  border-radius: 201%;
+  background-color: white;
+  border-bottom: solid 5px red;
+}
+.reddit .h {
+  height: 38px;
+  width: 20px;
+  position: absolute;
+  top: 37px;
+  left: 78px;
+  border-left: solid 5px white;
+  border-top: solid 5px white;
+  transform: rotate(20deg);
+}
+.reddit .g {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  top: 36px;
+  left: 98px;
+  background-color: white;
+  border-radius:100%;
+}
+.nome {
+  margin-top: 5px;
+  font-size: 40px;
+  text-align: center;
+  font-family: 'Gaegu', cursive;
+}
+.miniflex {
+  display: flex;
+  margin:10px;
+  flex-direction: column;
+}
+.google .a {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top:50px;
+  left:40px;
+  /*background-color: green;*/
+  border: solid 30px transparent;
+  border-top: solid 30px red;
+  border-left: solid 30px red;
+  /*border-bottom: solid 30px dodgerblue;*/
+  /*border-right: solid 10px red;*/
+  border-radius: 100%;
+}
+.google .b {
+  height: 25px;
+  width: 80px;
+  position: absolute;
+  background-color: dodgerblue;
+  top: 112px;
+  left: 100px;
+  border-radius: 0px 0px 10px 0px;
+}
+.google .c {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top:50px;
+  left:39px;
+  /*background-color: green;*/
+  border: solid 30px transparent;
+  /*border-top: solid 30px red;*/
+  border-left: solid 32px yellow;
+  /*border-bottom: solid 30px dodgerblue;*/
+  /*border-right: solid 10px red;*/
+  border-radius: 100%;
+  transform: rotate(-20deg);
+  z-index: 1;
+}
+.google .d {
+  height: 80px;
+  width: 80px;
+  position: absolute;
+  top: 50px;
+  left: 37px;
+  /* background-color: green; */
+  border: solid 30px transparent;
+  /* border-top: solid 30px red; */
+  border-left: solid 35px green;
+  /* border-bottom: solid 30px green; */
+  /* border-right: solid 30px dodgerblue; */
+  border-radius: 100%;
+  transform: rotate(-74deg);
+  z-index: 2;
+}
+.google .e {
+height: 80px;
+    width: 80px;
+    position: absolute;
+    top: 50px;
+    left: 38px;
+    /* background-color: green; */
+    border: solid 30px transparent;
+    /* border-top: solid 30px red; */
+    /* border-left: solid 33px green; */
+    /* border-bottom: solid 30px green; */
+    border-right: solid 33px dodgerblue;
+    border-radius: 100%;
+    transform: rotate(44deg);
+    z-index: 1;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="flex">
+
+  <div class="miniflex">
+    <div class="tela">
+
+    <div class="reddit">
+      <div class="a"></div>
+      <div class="b"></div>
+      <div class="c"></div>
+      <div class="d"></div>
+      <div class="e"></div>
+      <div class="f"></div>
+      <div class="h"></div>
+      <div class="g"></div>
+    </div>
+
+    </div>
+    <span class="nome">Reddit</span>
+  </div>
+
+  <div class="miniflex">
+    <div class="tela">
+
+    <div class="google">
+      <div class="a"></div>
+      <div class="b"></div>
+      <div class="c"></div>
+      <div class="d"></div>
+      <div class="e"></div>
+    </div>
+
+    </div>
+    <span class="nome">Google</span>
+  </div>
+
+</div>
+</body>
+
+
+</html>
